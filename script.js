@@ -36,4 +36,32 @@ function checkDigitsInName(name) {
     return false;
   }
 }
+
 // console.log(checkDigitsInName('Raj'));
+
+function calculateFinalScore(obj) {
+  if (
+    typeof obj === 'object' &&
+    obj.testScore <= 50 &&
+    obj.schoolGrade <= 30 &&
+    typeof obj.isFFamily === 'boolean'
+  ) {
+    const testScore = obj.testScore;
+    const schoolScore = obj.schoolGrade;
+    const farmerScore = obj.isFFamily ? 20 : 0;
+
+    let totalScore = testScore + schoolScore + farmerScore;
+
+    return totalScore >= 80 ? true : false;
+  } else {
+    return 'Invalid Input';
+  }
+}
+
+// const input = {
+//   name: 'Rajib',
+//   testScore: 40,
+//   schoolGrade: 20,
+//   isFFamily: true,
+// };
+// console.log(calculateFinalScore(input));
