@@ -65,3 +65,25 @@ function calculateFinalScore(obj) {
 //   isFFamily: true,
 // };
 // console.log(calculateFinalScore(input));
+
+function waitingTime(waitingTimes, serialNumber) {
+  if (Array.isArray(waitingTimes) && typeof serialNumber === 'number') {
+    const arrayLength = waitingTimes.length;
+    const serialLeft = serialNumber - arrayLength - 1;
+
+    let sum = 0;
+    for (let time of waitingTimes) {
+      sum += time;
+    }
+    let average = Math.round(sum / arrayLength);
+
+    let waitTime = serialLeft * average;
+
+    return waitTime;
+  } else {
+    return 'Invalid Input';
+  }
+}
+
+// const sInput = [3, 5, 7, 11, 6];
+// console.log(waitingTime(sInput, 10));
