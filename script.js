@@ -28,10 +28,12 @@ function sendNotification(email) {
 // console.log(sendNotification('sadia8icloud@gmail.com'));
 
 function checkDigitsInName(name) {
-  if (typeof name === 'string') {
-    console.log('string');
+  if (typeof name !== 'string') {
+    return 'Invalid Input';
+  } else if (name.match(/[0-9]/)) {
+    return true;
+  } else {
+    return false;
   }
-
-  return 'hello';
 }
-console.log(checkDigitsInName('Raj123'));
+// console.log(checkDigitsInName('Raj'));
