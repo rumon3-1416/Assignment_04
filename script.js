@@ -1,23 +1,23 @@
 function calculateTax(income, expenses) {
-  if (income < 0 || expenses < 0 || expenses > income) {
-    return 'Invalid Input';
-  } else {
+  if (income >= 0 && expenses >= 0 && income >= expenses) {
     const cost = income - expenses;
 
     let tax = cost * 0.2;
 
     return tax;
+  } else {
+    return 'Invalid Input';
   }
 }
 
-// console.log(calculateTax(6000, 1500));
+// console.log(calculateTax(6000, '1500'));
 
 function sendNotification(email) {
   if (email.includes('@')) {
-    const emailSlice = email.split('@');
+    const emailSpilt = email.split('@');
 
     const notification =
-      emailSlice[0] + ' sent you an email from ' + emailSlice[1];
+      emailSpilt[0] + ' sent you an email from ' + emailSpilt[1];
 
     return notification;
   } else {
@@ -25,19 +25,21 @@ function sendNotification(email) {
   }
 }
 
-// console.log(sendNotification('sadia8icloud@gmail.com'));
+// console.log(sendNotification('sadia8icloud.com'));
 
 function checkDigitsInName(name) {
-  if (typeof name !== 'string') {
-    return 'Invalid Input';
-  } else if (name.match(/[0-9]/)) {
-    return true;
+  if (typeof name === 'string') {
+    if (name.match(/[0-9]/)) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
-    return false;
+    return 'Invalid Input';
   }
 }
 
-// console.log(checkDigitsInName('Raj'));
+// console.log(checkDigitsInName(['Raj']));
 
 function calculateFinalScore(obj) {
   if (
@@ -58,12 +60,13 @@ function calculateFinalScore(obj) {
   }
 }
 
-// const input = {
-//   name: 'Rajib',
-//   testScore: 40,
-//   schoolGrade: 20,
-//   isFFamily: true,
-// };
+const input = {
+  name: 'Rajib',
+  testScore: 15,
+  schoolGrade: 25,
+  isFFamily: true,
+};
+
 // console.log(calculateFinalScore(input));
 
 function waitingTime(waitingTimes, serialNumber) {
@@ -85,5 +88,5 @@ function waitingTime(waitingTimes, serialNumber) {
   }
 }
 
-// const sInput = [3, 5, 7, 11, 6];
-// console.log(waitingTime(sInput, 10));
+// const sInput = [7, 8, 3, 4, 5];
+// console.log(waitingTime(sInput, 9));
