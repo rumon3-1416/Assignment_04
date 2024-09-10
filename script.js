@@ -1,8 +1,8 @@
-function calculateTax(income, expense) {
-  if (income < 0 || expense < 0 || expense > income) {
+function calculateTax(income, expenses) {
+  if (income < 0 || expenses < 0 || expenses > income) {
     return 'Invalid Input';
   } else {
-    const cost = income - expense;
+    const cost = income - expenses;
 
     let tax = cost * 0.2;
 
@@ -13,9 +13,25 @@ function calculateTax(income, expense) {
 // console.log(calculateTax(6000, 1500));
 
 function sendNotification(email) {
-  // const
+  if (email.includes('@')) {
+    const emailSlice = email.split('@');
 
-  console.log(email);
+    const notification =
+      emailSlice[0] + ' sent you an email from ' + emailSlice[1];
+
+    return notification;
+  } else {
+    return 'Invalid Email';
+  }
 }
 
-sendNotification('zihad.ph@gmail.com');
+// console.log(sendNotification('sadia8icloud@gmail.com'));
+
+function checkDigitsInName(name) {
+  if (typeof name === 'string') {
+    console.log('string');
+  }
+
+  return 'hello';
+}
+console.log(checkDigitsInName('Raj123'));
